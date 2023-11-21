@@ -64,10 +64,8 @@ Route::get('posts/{post}', function ($slug) {
     ]);
 })->where('post', '[A-z_\-]+'); //regular expression
 
-Route::get('post/{post}', function ($slug) {
-    $post = Post::find($slug);
-
+Route::get('post/{post}', function ($id) {
     return view('post', [
-        'post' => $post
+        'post' => Post::find($id)
     ]);
-})->where('post', '[A-z_\-]+');
+});
